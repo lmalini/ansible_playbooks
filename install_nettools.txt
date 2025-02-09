@@ -1,0 +1,5 @@
+- hosts: semaphore 
+  tasks:
+  - name : Install multiple packages
+    apt: name={{ item }} state=latest update_cache=true
+    loop: [nmap, iftop, mtr]
