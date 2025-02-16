@@ -5,4 +5,4 @@
   tasks:
   - name: Install package {{ apka }}
     apt: name={{ apka }} state=latest update_cache=true
-
+#### ansible-playbook -i homelab_inv install_soft_vars.yml --extra-vars "app=iftop cel=ansible.lan"
