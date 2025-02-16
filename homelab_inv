@@ -1,0 +1,17 @@
+[homelab]
+ansible.lan
+bookstack.lan
+docker.lan
+motion.lan
+nextcloudpi.lan
+nginxproxymanager.lan
+pihole.lan
+#semaphore.lan
+ubuntu24.lan
+zabbix.lan
+nextcloud.lan ansible_port=222
+
+[fizyczne]
+proxmox.lan
+nextcloud.lan ansible_port=222
+bazgralnik.pracownia-wm.eu

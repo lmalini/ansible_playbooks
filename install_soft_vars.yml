@@ -1,0 +1,8 @@
+- hosts: "{{ maszyna }}"
+  vars:
+    apka: "{{ app }}"
+    maszyna: "{{ cel }}"
+  tasks:
+  - name: Install package {{ apka }}
+    apt: name={{ apka }} state=latest update_cache=true
+

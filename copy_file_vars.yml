@@ -1,0 +1,24 @@
+---
+- name: Intro to Ansible Playbooks
+  hosts: "{{ maszyna }}"
+  vars:
+    plik: "{{ sciezka }}"
+    cel: "{{ target }}"
+    maszyna: "{{ cel }}"
+  tasks:
+  - name: Copy file {{ plik }} with permissions
+    ansible.builtin.copy:
+      src: "{{ plik }}"
+      dest: "{{ cel }}"
+      mode: '0644'
+#  - name: Add the user 'bob'
+#    ansible.builtin.user:
+#      name: bob
+#    become: yes
+#    become_method: sudo
+#  - name: Upgrade all apt packages
+#    apt:
+#      force_apt_get: yes
+#      upgrade: dist
+#    become: yes
+#### ansible-playbook -i homelab_inv copy_file_vars.yml -e "sciezka=/skrypty/copy_file_vars.yml target=/tmp/plik.ttt cel=ansible.lan" -v coś nie działa ;(

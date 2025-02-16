@@ -1,0 +1,12 @@
+---
+- hosts: bookstack.lan
+#  become: true
+  tasks:
+  - name: Execute bookstack backup script FILES
+    ansible.builtin.shell: /root/bckp/bckp_bookstack_files.sh > /root/bckp/bckp_bookstack.log
+
+  - name: Execute bookstack backup script DB
+    ansible.builtin.shell: /root/bckp/bckp_bookstack_db.sh >> /root/bckp/bckp_bookstack.log
+ 
+  - name: Send log
+    ansible.builtin.shell: cat /root/bckp/bckp_bookstack.log| mutt -s "Backup BookStack'a" kri100fer_malin@interia.pl

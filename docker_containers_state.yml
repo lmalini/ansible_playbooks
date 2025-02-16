@@ -1,0 +1,32 @@
+---
+- hosts: docker.lan,ubuntu24.lan
+  gather_facts: yes
+  become: yes
+
+  tasks:
+
+    - name: docker container ls -a
+      tags: container_ls
+      become: True
+      shell:
+        "docker container ls -a"
+      register: container_info
+
+    - name: docker container ls -a result
+      tags: container_ls
+      debug:
+        msg: "{{container_info.stdout_lines}}"
+
+#  - name: Get infos on container
+#    community.docker.docker_container_info:
+#    name: mydata
+#    register: result
+
+#  - name: Does container exist?
+#    ansible.builtin.debug:
+#    msg: "The container {{ 'exists' if result.exists else 'does not exist' }}"
+
+#  - name: Print information about container
+#    ansible.builtin.debug:
+#    var: result.container
+#    when: result.exists

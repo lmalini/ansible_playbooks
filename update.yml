@@ -1,0 +1,14 @@
+---
+#apt-upgrade.yml
+- hosts: homelab
+  become: true
+  tasks:
+  - name: Update and upgrade apt packages
+    apt:
+#      name: "*"
+      state: latest
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400 #One day
+      autoremove: yes
+      purge: true

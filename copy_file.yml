@@ -1,0 +1,21 @@
+---
+- name: Intro to Ansible Playbooks
+  hosts: semaphore
+
+  tasks:
+  - name: Copy file xxxx with permissions
+    ansible.builtin.copy:
+      src: ./plik.txt
+      dest: /tmp/plik.txt
+      mode: '0644'
+#  - name: Add the user 'bob'
+#    ansible.builtin.user:
+#      name: bob
+#    become: yes
+#    become_method: sudo
+#  - name: Upgrade all apt packages
+#    apt:
+#      force_apt_get: yes
+#      upgrade: dist
+#    become: yes
+
